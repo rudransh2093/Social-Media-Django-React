@@ -55,12 +55,13 @@ MIDDLEWARE = [
 ]
 
 CORS_ALLOWED_ORIGINS = [
-    "https://example.com",
-    "https://sub.example.com",
-    "http://localhost:8080",
-    "http://127.0.0.1:9000",
+    "http://localhost:3000",   # The frontend URL you're making requests from
+    "http://127.0.0.1:3000",   # Another variant of the frontend URL
 ]
-CORS_ALLOW_CREDENTIALS: True
+
+CORS_ALLOW_CREDENTIALS = True  # Enable credentials (cookies, authorization headers, etc.)
+
+
 
 MEDIA_URL = '/media/'
 MEDIA_ROOT = os.path.join(BASE_DIR, 'media')
