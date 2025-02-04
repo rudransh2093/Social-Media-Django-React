@@ -1,4 +1,4 @@
-import { VStack, Flex, FormControl, Input, Button, FormLabel, Heading } from "@chakra-ui/react"
+import { VStack, Flex,  Text,  FormControl, Input, Button, FormLabel, Heading } from "@chakra-ui/react"
 import { login } from "../api/endpoints"
 import { useNavigate } from "react-router-dom";
 import { useState} from "react"
@@ -19,6 +19,10 @@ const Login = () => {
        }
     }
 
+    const handleNav = () => {
+        navigate('/register')
+    }
+
     return(
         <Flex w='100%' h='calc(100vh - 90px)' justifyContent='center' alignItems='center'>
             <VStack alignItems='start' w='95%' maxW='400px' gap='30px'>
@@ -31,7 +35,10 @@ const Login = () => {
                 <FormLabel htmlFor='password'>Password</FormLabel>
                 <Input onChange={(e) => setPassword(e.target.value)} bg='white' type='password' />
             </FormControl>
-            <Button onClick={handleLogin} w='100%' colorScheme="green" fontSize='18px'>Login</Button>
+            <VStack w='100%' alignItems='start'>
+                    <Button onClick={handleLogin} w='100%' colorScheme="green" fontSize='18px'>Login</Button>
+                    <Text onClick={handleNav} fontSize='14px' color='gray.500'>Don't have an account? Sign up</Text>
+            </VStack>
             </VStack>
         </Flex>
     )
