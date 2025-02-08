@@ -60,11 +60,21 @@ const Register = () => {
                     <FormLabel htmlFor='password'>Confirm Password</FormLabel>
                     <Input onChange={(e) => setConfirmPassword(e.target.value)} bg='white' type='password' />
                 </FormControl>
-                <VStack w='100%' alignItems='start' gap='10px'>
-                    <Button onClick={handleRegister} w='100%' colorScheme="green" fontSize='18px'>Register</Button>
-                    <Text onClick={handleNav} fontSize='14px' color='green'>Already have an account? Log in</Text>
+                <VStack w="100%" alignItems="start" gap="10px">
+                    <Button onClick={handleRegister} w="100%" colorScheme="green" fontSize="18px">
+                        Register
+                    </Button>
+                    <Text 
+                        onClick={handleNav} 
+                        fontSize="16px" 
+                        color="black" 
+                        _hover={{ color: "blue.500", textDecoration: "underline" }} 
+                        cursor="pointer" 
+                        textAlign="center"
+                    >
+                        Already have an account? <Text as="span" fontWeight="bold">Log in</Text>
+                    </Text>
                 </VStack>
-
             </VStack>
         </Flex>
     )

@@ -47,3 +47,8 @@ const refresh_token = async () => {
     const response = await api.post('/token/refresh/');
     return response.data
 }
+
+export const get_auth = async () => {
+    const response = await api.get(`/authenticated/`);
+    return response.data
+}
