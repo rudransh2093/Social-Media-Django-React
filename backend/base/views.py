@@ -93,11 +93,36 @@ class CustomTokenRefreshView(TokenRefreshView):
 def get_user_profile_data(request, pk):
     try:
         try:
-            user = MyUser.objects.get(username= pk)
+            user = MyUser.objects.get(username=pk)
         except MyUser.DoesNotExist:
-            return Response({'error': 'user does not exist!'})
+            return Response({'error':'user does not exist'})
         
-        serializer = MyUserProfileSerializer(user, many = False)
-        return Response(serializer.data)
+        serializer = MyUserProfileSerializer(user, many=False)
+
+        following = False
+
+        if request.user in user.followers.all():
+            following = True
+
+        return Response({**serializer.data, 'is_our_profile': request.user.username == user.username, 'following':following})
     except:
-        return Response({'error': 'error getting user data!'})
+        return Response({'error':'error getting user data'})
+
+@api_view(['POST'])
+@permission_classes([IsAuthenticated])
+def toggleFollow(request):
+    try:
+        try:
+            my_user = MyUser.objects.get(username=request.user.username)
+            user_to_follow = MyUser.objects.get(username=request.data['username'])
+        except MyUser.DoesNotExist:
+            return Response({'error':'users does not exist'})
+        
+        if my_user in user_to_follow.followers.all():
+            user_to_follow.followers.remove(my_user)
+            return Response({'now_following':False})
+        else:
+            user_to_follow.followers.add(my_user)
+            return Response({'now_following':True})
+    except:
+        return Response({'error':'error following user'})
