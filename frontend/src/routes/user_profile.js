@@ -143,7 +143,7 @@ const UserPosts = ({username}) => {
               <Text>Loading...</Text>
           :
               posts.map((post) => {
-                return <Post key={post.id} username={post.username} description={post.description} formatted_date={post.formatted_date} liked={post.liked} like_count={post.like_count} />
+                return <Post key={post.id} id={post.id} username={post.username} description={post.description} formatted_date={post.formatted_date} liked={post.liked} like_count={post.like_count} />
               })
           }
       </Flex>

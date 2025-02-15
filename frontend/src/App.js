@@ -7,6 +7,8 @@ import Login from './routes/login';
 import Register from './routes/register';
 import { AuthProvider } from './contexts/useAuth';
 import PrivateRoute from './components/private_route';
+import CreatePost from './routes/create_post';
+import Home from './routes/home';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
         <AuthProvider>
           <Routes>
             <Route element={<Layout><PrivateRoute><UserProfile/></PrivateRoute></Layout>} path='/:username'/>
+            <Route element={<Layout><PrivateRoute><CreatePost /></PrivateRoute></Layout>} path='/create/post'/>
+            <Route element={<Layout><PrivateRoute><Home /></PrivateRoute></Layout>} path='/'/>
             <Route element={<Layout><Login/></Layout>} path='/login'/>
             <Route element={<Layout><Register/></Layout>} path='/register'/>
           </Routes>
