@@ -4,6 +4,7 @@ import { IoPersonOutline } from "react-icons/io5";
 import { IoMdAddCircleOutline } from "react-icons/io";
 import { FaHouse } from "react-icons/fa6";
 import { IoSearch } from "react-icons/io5";
+import { IoMdSettings } from "react-icons/io";
 
 const Navbar = () => {
   const nav = useNavigate();
@@ -38,6 +39,7 @@ const Navbar = () => {
           <Text onClick={() => handleFunction('search')} cursor="pointer">
             <IoSearch size="24px" />
           </Text>
+          <Text onClick={(route) => handleFunction('settings')}><IoMdSettings size='20px' /></Text>
         </HStack>
       </HStack>
     </Flex>
