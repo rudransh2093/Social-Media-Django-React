@@ -74,6 +74,8 @@ CORS_ALLOWED_ORIGINS = [
 
 CORS_ALLOW_CREDENTIALS = True  
 CORS_ALLOW_ALL_ORIGINS = True
+CSRF_TRUSTED_ORIGINS = ["https://frontend-rust-delta.vercel.app", "https://frontend-4qq21p7oe-rudransh2093s-projects.vercel.app"]
+
 
 
 MEDIA_URL = '/media/'
