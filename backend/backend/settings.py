@@ -72,8 +72,8 @@ CORS_ALLOWED_ORIGINS = [
     "https://social-media-django-react.onrender.com",
 ]
 
-CORS_ALLOW_CREDENTIALS = True  # Enable credentials (cookies, authorization headers, etc.)
-
+CORS_ALLOW_CREDENTIALS = True  
+CORS_ALLOW_ALL_ORIGINS = True
 
 
 MEDIA_URL = '/media/'
