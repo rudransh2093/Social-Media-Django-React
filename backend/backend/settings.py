@@ -9,7 +9,6 @@ https://docs.djangoproject.com/en/5.0/topics/settings/
 For the full list of settings and their values, see
 https://docs.djangoproject.com/en/5.0/ref/settings/
 """
-from datetime import timedelta
 from pathlib import Path
 import os
 import dj_database_url
@@ -27,16 +26,8 @@ SECRET_KEY = 'django-insecure-=m4$7%vg09=q2au#-c)bfh2fz8*23#dkq$$q^kov&6-e2$u@z3
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ["social-media-django-react.onrender.com", "localhost"]
+ALLOWED_HOSTS = ["*"]
 
-SIMPLE_JWT = {
-    "USER_ID_FIELD": "username",
-    "ACCESS_TOKEN_LIFETIME": timedelta(minutes=30),
-    "REFRESH_TOKEN_LIFETIME": timedelta(days=1),
-    "ROTATE_REFRESH_TOKENS": True,
-    "BLACKLIST_AFTER_ROTATION": True,
-    "AUTH_HEADER_TYPES": ("Bearer",),
-}
 
 # Application definition
 
