@@ -105,7 +105,9 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 # https://docs.djangoproject.com/en/5.0/ref/settings/#databases
 
 DATABASES = {
-    'default': dj_database_url.config(default="postgresql://socialmedia_db_e8cb_user:DY9cnlZ8PgsZyQ21gB2rtpasahBqOMu0@dpg-cuu9spij1k6c73dogos0-a.oregon-postgres.render.com/socialmedia_db_e8cb")
+    'default': dj_database_url.config(
+        default="postgresql://socialmedia_db_lo4u_user:icBjFGZIBl5CqRbOPTHZayILdlQTkGRP@dpg-d0cs56umcj7s73atbvbg-a.oregon-postgres.render.com/socialmedia_db_lo4u"
+    )
 }
 
 # Password validation
