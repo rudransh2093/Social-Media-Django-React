@@ -4,9 +4,9 @@ import { SERVER_URL } from '../Constants/constants'
 const BASE_URL = SERVER_URL
 
 const api = axios.create({
-    baseURL:BASE_URL,
-    withCredentials:true
-})
+    baseURL: SERVER_URL, 
+    withCredentials: true
+});
 
 api.interceptors.response.use(
     (response) => response,

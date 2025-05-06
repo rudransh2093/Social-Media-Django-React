@@ -4,6 +4,8 @@ import { get_user_profile_data,get_users_posts, toggleFollow } from "../api/endp
 import { SERVER_URL } from "../Constants/constants";
 
 import Post from "../components/post";
+import { useNavigate } from 'react-router-dom';
+
 const UserProfile = () =>{
 
     const get_username_from_url = () => {
@@ -54,8 +56,8 @@ const UserDetails = ({username}) => {
     }
     console.log("Fetching data for:", username);
     console.log("API Endpoint:", `${SERVER_URL}/profile/${username}`);
-
   }
+  
 
   useEffect(() => {
 
@@ -80,6 +82,12 @@ const UserDetails = ({username}) => {
       
   }, [username])
 
+  const handleFunction = (route) => {
+    nav(`/${route}`);
+  };
+  const nav = useNavigate();
+
+
     return(
         <VStack w='100%' alignItems='start' gap='20px'>
           <Heading fontSize='25px'>@{username}</Heading>
@@ -103,7 +111,7 @@ const UserDetails = ({username}) => {
                       <Spacer />
                   :
                     isOurProfile ?
-                      <Button w='100%'>Edit Profile</Button>
+                      <Button onClick={(route) => handleFunction('settings')} w='100%' >Edit Profile</Button>
                     :
                     <Button onClick={handleToggleFollow} colorScheme= 'blue' w='100%'>{following ? 'Unfollow' : 'Follow'}</Button>
               }
