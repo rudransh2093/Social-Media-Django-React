@@ -26,15 +26,19 @@ def register(request):
 class CustomTokenObtainPairView(TokenObtainPairView):
     def post(self, request, *args, **kwargs):
         response = super().post(request, *args, **kwargs)
-        tokens = response.data
 
+        # Check if authentication failed
+        if response.status_code != 200:
+            return response  # return the actual error (likely 401)
+
+        tokens = response.data
         access_token = tokens.get('access')
         refresh_token = tokens.get('refresh')
-        username = request.data.get('username')
 
         if not access_token or not refresh_token:
             return Response({'error': 'Tokens not generated'}, status=400)
 
+        username = request.data.get('username')
         try:
             user = MyUser.objects.get(username=username)
         except MyUser.DoesNotExist:
@@ -50,8 +54,6 @@ class CustomTokenObtainPairView(TokenObtainPairView):
                 "last_name": user.last_name
             }
         })
-
-        print(f"Setting cookies: access_token={access_token}, refresh_token={refresh_token}")  # Debugging line
 
         res.set_cookie(
             key='access_token',
