@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://socialmedia_db_gphc_user:eCuYHexlDZYoVj0SScBXaTz0G31waOqD@dpg-d0ti2463jp1c73eklii0-a.oregon-postgres.render.com/socialmedia_db_gphc"
+        default="postgresql://rct_socialmedia_db_user:flmyUYSM5vffW4fsimvKgCi0Q6WJZo8d@dpg-d0tkltadbo4c739q36gg-a.singapore-postgres.render.com/rct_socialmedia_db"
     )
 }
 
