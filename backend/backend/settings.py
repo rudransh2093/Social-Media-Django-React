@@ -106,7 +106,7 @@ WSGI_APPLICATION = 'backend.wsgi.application'
 
 DATABASES = {
     'default': dj_database_url.config(
-        default="postgresql://rct_socialmedia_db_user:flmyUYSM5vffW4fsimvKgCi0Q6WJZo8d@dpg-d0tkltadbo4c739q36gg-a.singapore-postgres.render.com/rct_socialmedia_db"
+        default="postgresql://neondb_owner:npg_6cFiTpoaDCP5@ep-little-cloud-a1x6ukps-pooler.ap-southeast-1.aws.neon.tech/neondb?sslmode=require"
     )
 }
 
